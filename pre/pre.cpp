@@ -1,0 +1,1 @@
+#include<iostream>#include<cstdio>#include<cmath>#include<cstdlib>#include<cstring>#include<string>#include<vector>#include<stack>#include<queue>#include<set>#include<map>#include<algorithm>using namespace std;typedef long long  ll;typedef unsigned long long ull;
