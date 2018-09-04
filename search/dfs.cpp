@@ -9,6 +9,7 @@ for(int i=0;i<n;++i){
         if(!vis[i][j]){
             vis[i][j]=1;
             dfs(i,j,++cnt);
+            vis[i][j]=0;
         }
     }
 }
