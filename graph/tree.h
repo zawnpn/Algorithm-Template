@@ -1,5 +1,5 @@
 const int maxn=110; 
-int lc[maxn],rc[maxn],p[maxn];  /／若节点编号严格是1-n
+int lc[maxn],rc[maxn],p[maxn];  //若节点编号严格是1-n
 int n,m;
 
 

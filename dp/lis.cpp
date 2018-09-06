@@ -15,19 +15,42 @@ int n,num[maxn],dp[maxn],pre[maxn];  //n^2 能打印路径
 int ans,idx;
 void lis(){
     memset(pre,-1,sizeof(pre));
-   for(int i=0;i<n;++i){
-       dp[i]=0;
-       for(int j=0;j<i;++j){
-           if(num[i]>num[j]&&dp[j]+1>dp[i]){
-               dp[i]=dp[j]+1;
-               pre[i]=j;
-               if(dp[i]>ans){
-                   ans=dp[i];
-                   idx=i;
-               }
-           }
-       }
-   }
+    for(int i=0;i<n;++i){
+        dp[i]=0;
+        for(int j=0;j<i;++j){
+            if(num[i]>num[j]&&dp[j]+1>dp[i]){
+                dp[i]=dp[j]+1;
+                pre[i]=j;
+                if(dp[i]>ans){
+                    ans=dp[i];
+                    idx=i;
+                }
+            }
+        }
+    }
+}
+
+//safe
+void lis(){
+    for(int i=0;i<n;++i){
+		dp[i]=0;
+		pre[i]=-1;
+	}
+    for(int i=0;i<n;++i){
+        for(int j=0;j<i;++j){
+            if(num[i]>num[j]&&dp[j]+1>dp[i]){
+                dp[i]=dp[j]+1;
+                pre[i]=j;
+            }
+        }
+    }
+	ans=dp[0];
+	for(int i=1;i<n;++i){
+		if(dp[i]>ans){
+			ans=dp[i];
+			idx=i;
+		}
+	}
 }
 void print(int i){
     if(pre[i]!=-1)  print(pre[i]);
