@@ -1,25 +1,20 @@
-#include <cstdio>
-#include <cstring>
-const int MAXN = 100000000;
-bool flag[MAXN];
-int primes[MAXN / 3], pi;
-int main()
-{
+const int maxn = 10000010;
+bool is_prime[maxn];
+int primes[maxn/3], pi;
+long long tmp;
+void GenPrime(int n){
 	int i, j;
 	pi = 0;
-	memset(flag, false, sizeof(flag));
-	for (i = 2; i < MAXN; i++)
-	{
-		if (!flag[i])
+	for (i = 2; i <= n; i++)
+		is_prime[i] = 1;
+	for (i = 2; i <= n; i++){
+		if (is_prime[i])
 			primes[pi++] = i;
-		for (j = 0; (j < pi)  && (i * primes[j] < MAXN); j++)
-		{
-			flag[i * primes[j]] = true;
-			if (i % primes[j] == 0)
-				break;
+		for (j = 0; j < pi; j++){
+			tmp = i * primes[j];
+			if (tmp > n) break;
+			is_prime[tmp] = 0;
+			if (i % primes[j] == 0) break;
 		}
-    }
-    for (i = 0; i < pi; i++)
-        printf("%d\n", primes[i]);
-    return 0;
+	}
 }

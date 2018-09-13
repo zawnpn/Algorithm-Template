@@ -25,3 +25,15 @@ void dijkstra(int s){
        }
     }
 }
+int main()
+{
+	int m,s,from,to,w;
+	scanf("%d%d%d",&n,&m,&s);
+	while(m--)
+	{
+		scanf("%d%d%d", &from, &to, &w);
+		edges[from].push_back(edge(to, w));
+	}
+	dijkstra(s);
+	printf("%d",dis[i]);
+}

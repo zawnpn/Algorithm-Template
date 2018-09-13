@@ -9,33 +9,30 @@ struct rice{
 } r[maxn];
 int V;
 int max(int a, int b) { return a > b ? a : b; }
-void ZeroOnePack(int cost, int weight){
+void ZeroOnePack(int cost, int value){
     for (int v = V; v >= cost; v--){
-        dp[v] = max(dp[v], dp[v - cost] + weight);
+        dp[v] = max(dp[v], dp[v - cost] + value);
     }
-    return;
 }
-void CompletePack(int cost, int weight){
+void CompletePack(int cost, int value){
     for (int v = cost; v <= V; v++){
-        dp[v] = max(dp[v], dp[v - cost] + weight);
+        dp[v] = max(dp[v], dp[v - cost] + value);
     }
-    return;
 }
-void MultiplePack(int cost, int weight, int amount){
+void MultiplePack(int cost, int value, int amount){
     if (cost*amount >= V){
-        CompletePack(cost, weight);
+        CompletePack(cost, value);
         return;
     }
     else{
         int k = 1;
         while(k<amount){
-            ZeroOnePack(k * cost, k * weight);
+            ZeroOnePack(k * cost, k * value);
             amount -= k;
             k *= 2;
         }
-        ZeroOnePack(amount * cost, amount * weight);
+        ZeroOnePack(amount * cost, amount * value);
     }
-    return;
 }
 int main(){
     int c, m;

@@ -1,0 +1,14 @@
+set nu
+set nobackup
+set nocompatible
+"set whichwrap=h,l
+set encoding=utf-8
+set clipboard+=unnamed
+set autoindent
+set smartindent
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set softtabstop=4
+set ruler
+syntax on
