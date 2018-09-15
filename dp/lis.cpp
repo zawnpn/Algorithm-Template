@@ -8,9 +8,6 @@ int lis(){   // nlogn 但是不能打印路径
     return lower_bound(dp,dp+n,inf)-dp;
 }
 
-
-
-
 int n,num[maxn],dp[maxn],pre[maxn];  //n^2 能打印路径
 int ans,idx;
 void lis(){
